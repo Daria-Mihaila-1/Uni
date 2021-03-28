@@ -1,0 +1,37 @@
+#sed
+
+#!/bin/sh
+text=$1
+shift
+#der erste Argument wird nicht mehr beachtet
+for p in $@  #durchlaufe alle Parameter
+do 
+	if grep -q $text $p  #wenn man in der Datei p die Folge text gefunden hat
+	then
+		sed "/$text/d" "$p"  #loscht man die Zeile mit der Folge und druckt was geblieben ist
+	else
+	#sonst druckt man alles aus der Datei 
+		cat $p
+	fi
+done
+
+
+
+
+
+
+#grep
+#!/bin/sh
+lines=$(cat $1)
+#der erste Argument wird in lines gespeichert
+shift
+#danach wird er nicht mehr beachtet
+for line in $lines  #ich gehe durch alle Zeilen der Datei
+do
+	for dir in $@  #danach durchgehe ich alle Directoren aus der Parameter Liste
+	do
+		find | grep $line | xargs rm -f  
+		#ich finde die Dateien in dem Verzeichnis dir,
+		# die den entsprechenden Namen haben und entferne sie
+	done
+done

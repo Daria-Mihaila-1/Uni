@@ -1,0 +1,2 @@
+10, 2, 250, rot, True, True
+712, 2, 250, grun, True, True

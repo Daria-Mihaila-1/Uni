@@ -1,0 +1,16 @@
+#!/bin/sh
+#Aufgabe 12
+#als Par 3 Zahlen
+
+if [ $(($(($1**2))+$(($2**2)))) -eq $(($(($3**2)))) ] #Untersuchung ob die Summe der ersten 2 Par(beide hoch 2) gleich mit dem 3.ten hoch 2 ist  
+ then   #falls ja dann wird die Botschaft "ja" gedruckt
+        echo "ja"
+ elif [ $(($(($2**2))+$(($3**2)))) -eq $(($(($1**2)))) ] #Untersuchung ob die Summe des 2.ten und 3.ten Par(beide hoch 2) gleich mit dem 1.ten hoch 2 ist
+ then   #falls ja dann wird die Botschaft "ja" gedruckt    
+	echo "ja"
+ elif [ $(($(($1**2))+$(($3**2)))) -eq $(($(($2**2)))) ]  #Untersuchung ob die Summe des 1.ten und 3.ten Par(beide hoch 2) gleich mit dem 2.ten hoch 2 ist
+ then  #falls ja dann wird die Botschaft "ja" gedruckt
+	echo "ja"
+ else 
+	echo "nein"  #falls diese Falle nicht passieren wird die Botschaft "nein" gedruckt
+ fi
